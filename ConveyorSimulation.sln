@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37111.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConveyorSimulation.UI", "ConveyorSimulation.UI\ConveyorSimulation.UI.csproj", "{60C95456-BA51-44E0-BC89-1130B99080AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AE25669A-3538-4283-88A1-8D2011D38FBA} = {AE25669A-3538-4283-88A1-8D2011D38FBA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConveyorSimulation.Core", "ConveyorSimulation.Core\ConveyorSimulation.Core.csproj", "{AE25669A-3538-4283-88A1-8D2011D38FBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60C95456-BA51-44E0-BC89-1130B99080AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C95456-BA51-44E0-BC89-1130B99080AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C95456-BA51-44E0-BC89-1130B99080AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C95456-BA51-44E0-BC89-1130B99080AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE25669A-3538-4283-88A1-8D2011D38FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE25669A-3538-4283-88A1-8D2011D38FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE25669A-3538-4283-88A1-8D2011D38FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE25669A-3538-4283-88A1-8D2011D38FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86E7C1CA-4BB1-4816-8F1A-65E0DEE26DF5}
+	EndGlobalSection
+EndGlobal

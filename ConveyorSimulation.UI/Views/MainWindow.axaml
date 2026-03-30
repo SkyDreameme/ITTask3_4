@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ConveyorSimulation.UI.ViewModels"
+        x:Class="ConveyorSimulation.UI.Views.MainWindow"
+        Title="Conveyor Simulation"
+        Width="900" Height="700"
+        x:DataType="vm:MainWindowViewModel">
+
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10">
+			<Button Command="{Binding AddConveyorCommand}" Margin="5">➕ Добавить</Button>
+			<Button Command="{Binding StartAllCommand}" Margin="5">▶️ Запустить</Button>
+			<Button Command="{Binding StopAllCommand}" Margin="5">⏹️ Остановить</Button>
+			<Button Command="{Binding ClearAllCommand}" Margin="5">🗑️ Очистить</Button>
+			<TextBlock Text="{Binding Conveyors.Count, StringFormat='Конвейеров: {0}'}"
+                       VerticalAlignment="Center" Margin="10,0"/>
+		</StackPanel>
+
+		<ScrollViewer DockPanel.Dock="Bottom">
+			<ItemsControl ItemsSource="{Binding Conveyors}" Margin="10">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel Orientation="Horizontal"/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border BorderBrush="Gray" BorderThickness="1" CornerRadius="5"
+                                Margin="5" Padding="10" Width="280">
+							<StackPanel>
+								<TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
+								<TextBlock Text="{Binding Status}" Foreground="Gray" FontSize="12"/>
+
+								<ProgressBar Value="{Binding MaterialPercent}" Maximum="100"
+                                             Height="20" Margin="0,5"/>
+								<TextBlock Text="{Binding MaterialPercent, StringFormat='Материалы: {0}%'}"/>
+
+								<Panel IsVisible="{Binding IsBroken}">
+									<TextBlock Text="⚠️ СЛОМАН" Foreground="Red"
+                                               FontWeight="Bold" HorizontalAlignment="Center"/>
+								</Panel>
+
+								<Border Height="30" Background="#EEE" CornerRadius="3" Margin="0,5">
+									<ItemsControl ItemsSource="{Binding Parts}">
+										<ItemsControl.ItemsPanel>
+											<ItemsPanelTemplate>
+												<Canvas Width="200" Height="30"/>
+											</ItemsPanelTemplate>
+										</ItemsControl.ItemsPanel>
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<Ellipse Width="15" Height="15" Fill="Blue"
+                                                         Canvas.Top="7"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</Border>
+
+								<TextBlock Text="{Binding PartsCount, StringFormat='Деталей: {0}'}"
+                                           FontSize="12"/>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+	</DockPanel>
+</Window>
